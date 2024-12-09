@@ -43,9 +43,12 @@ INSTALLED_APPS = [
 
     'rest_framework.authtoken', # Para autenticación
     'authApp',
+
+    'django_prometheus', # Para Prometheus
 ]
 
 MIDDLEWARE = [
+    'django_prometheus.middleware.PrometheusBeforeMiddleware', # Prometheus
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -53,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_prometheus.middleware.PrometheusAfterMiddleware', # Prometheus
 ]
 
 REST_FRAMEWORK = {
